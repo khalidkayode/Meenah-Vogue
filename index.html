@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meenah's Vogue</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-papYrU4/0j+SlUpR6qVtExUADnmfVtpF0LSK4oCkQZ6UJ9vA7H/x/FDN5yH4Z4O8OhPYMQIQGHqC7hU4+RwApg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background-color: #fefefe; color: #333; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
+    .section { padding: 60px 20px; max-width: 1000px; margin: 0 auto; }
+    .container h2 { font-size: 32px; margin-bottom: 20px; color: #8b0000; text-align: center; }
+    .container p { font-size: 18px; line-height: 1.6; text-align: center; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px; }
+    .gallery-grid img { width: 100%; height: 400px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease; cursor: pointer; }
+    .gallery-grid img:hover { transform: scale(1.03); }
+    .contact-button { display: inline-block; background-color: #8b0000; color: white; padding: 12px 20px; border-radius: 5px; text-decoration: none; font-size: 16px; text-align: center; margin-top: 20px; }
+    .footer { background-color: #8b0000; color: white; padding: 40px 20px; text-align: center; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: space-around; margin-bottom: 20px; }
+    .footer-links div { margin: 10px; min-width: 200px; }
+    .footer h4 { font-size: 18px; margin-bottom: 10px; }
+    .footer ul { list-style: none; padding: 0; }
+    .footer ul li { margin-bottom: 8px; }
+    .footer .social-icons a { color: white; margin: 0 10px; font-size: 20px; text-decoration: none; }
+    @media screen and (max-width: 768px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .hero-text h1 { font-size: 28px; }
+      .hero-text p { font-size: 16px; }
+    }
+    .hero { background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/background.jpeg') no-repeat center center/cover; height: 90vh; display: flex; align-items: center; justify-content: center; color: white; text-align: center; }
+    .hero-text h1 { font-size: 48px; margin-bottom: 10px; }
+    .hero-text p { font-size: 20px; margin-bottom: 20px; }
+    .cta-button { background-color: #b22222; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; }
+    .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.9); text-align: center; }
+    .modal-content-wrapper { position: relative; margin: 50px auto; max-width: 90%; color: white; }
+    .modal-content-wrapper h3 { margin-bottom: 10px; font-size: 24px; color: #ffdfdf; }
+    .modal-content { width: 80%; max-height: 70vh; object-fit: contain; border-radius: 8px; transition: transform 0.3s ease; cursor: zoom-in; }
+    .modal-content.zoomed { transform: scale(1.5); cursor: zoom-out; }
+    .modal-desc { margin-top: 15px; font-size: 18px; color: #ccc; }
+    .close { position: absolute; top: 20px; right: 40px; color: #fff; font-size: 35px; font-weight: bold; cursor: pointer; }
+    .arrow-controls { margin-top: 10px; }
+    .arrow { cursor: pointer; font-size: 40px; padding: 0 20px; color: white; user-select: none; }
+    .arrow:hover { color: #ff9999; }
+  </style>
+</head>
+<body>
+  <!-- Top bar -->
+  <div class="top-bar">
+    <p>Email: leks4kkg@gmail.com | +2348072615835</p>
+  </div>
+  <!-- Header -->
+  <header>
+    <div class="logo">Meenah's Vogue – Bespoke Fashion & Tailoring</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Discover the Elegance of Custom Fashion</h1>
+      <p>Tailored with Passion, Styled with Purpose</p>
+      <a href="#services" class="cta-button">View Our Creations</a>
+    </div>
+  </section>
+  <!-- Introduction -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2>Welcome to Meenah's Vogue</h2>
+      <p>Step into a world where every thread tells a story. At Meenah's Vogue, fashion isn’t just about clothing — it’s about celebrating individuality, elegance, and empowerment...</p>
+    </div>
+  </section>
+  <!-- Services -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2>Our Services</h2>
+      <p>At Meenah's Vogue, we provide a complete range of fashion design and tailoring services...</p>
+    </div>
+  </section>
+  <!-- Bio -->
+  <section class="section">
+    <div class="container">
+      <h2>About the Designer</h2>
+      <p>With a heart for creativity and an eye for style, I bring years of hands-on experience...</p>
+    </div>
+  </section>
+  <!-- Gallery -->
+  <section id="gallery" class="section">
+    <div class="container">
+      <h2>Our Designs</h2>
+      <div class="gallery-grid">
+        <img src="images/design1.jpeg" alt="Elegant Lace Gown" onclick="openModal(this)">
+        <img src="images/design2.jpeg" alt="Floral Bridal Outfit" onclick="openModal(this)">
+        <img src="images/design3.jpeg" alt="Traditional Statement Look" onclick="openModal(this)">
+        <img src="images/design4.jpeg" alt="Bold & Classy Piece" onclick="openModal(this)">
+        <img src="images/design5.jpeg" alt="Modern Chic Dress" onclick="openModal(this)">
+        <img src="images/design6.jpeg" alt="Graceful Evening Gown" onclick="openModal(this)">
+      </div>
+    </div>
+  </section>
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div class="modal-content-wrapper">
+      <h3 id="modalTitle"></h3>
+      <img class="modal-content" id="modalImage" onclick="zoomImage()" />
+      <p class="modal-desc" id="modalDesc"></p>
+      <div class="arrow-controls">
+        <span class="arrow left" onclick="navigateModal(-1)">&#10094;</span>
+        <span class="arrow right" onclick="navigateModal(1)">&#10095;</span>
+      </div>
+    </div>
+  </div>
+  <!-- Contact Button -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <p>Have a design in mind or need expert tailoring? Let’s connect directly on WhatsApp to bring your vision to life.</p>
+      <a class="contact-button" href="https://wa.me/2348072615835" target="_blank">Chat on WhatsApp</a>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Meenah's Vogue — A Woman-Owned Fashion & Tailoring Brand</p>
+    <div class="footer-links">
+      <div>
+        <h4>Collections</h4>
+        <ul>
+          <li>Custom Dresses</li>
+          <li>Elegant Suits</li>
+          <li>Bridal Wear</li>
+          <li>Evening Gowns</li>
+          <li>Corporate Outfits</li>
+          <li>Children’s Wear</li>
+          <li>Casual Styles</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect With Us</h4>
+        <p>Iseyin, Oyo State, Nigeria<br> Ibadan, Oyo State, Nigeria<br>
+        <a href="mailto:leks4kkg@gmail.com">leks4kkg@gmail.com</a><br>
+        <a href="tel:+2348072615835">+234 807 261 5835</a></p>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/miskeen__billahi003" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/Shinaayomi00" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a href="https://wa.me/2348072615835" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/2348072615835" class="whatsapp" target="_blank">
+    <img src="images/whatsapp.png" alt="WhatsApp" />
+  </a>
+  <script>
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modalImage");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDesc = document.getElementById("modalDesc");
+    const galleryImages = document.querySelectorAll(".gallery-grid img");
+    const descriptions = {
+      "Elegant Lace Gown": "A graceful lace gown designed for elegance and charm.",
+      "Floral Bridal Outfit": "A floral bridal outfit with rich detail and romantic flair.",
+      "Traditional Statement Look": "Make a cultural statement with this traditional piece.",
+      "Bold & Classy Piece": "A fashion-forward design that makes you stand out.",
+      "Modern Chic Dress": "For the modern woman with timeless taste.",
+      "Graceful Evening Gown": "Elegance and poise in a beautifully tailored evening dress."
+    };
+    let currentIndex = 0;
+    function openModal(img) {
+      currentIndex = [...galleryImages].indexOf(img);
+      showImage(currentIndex);
+      modal.style.display = "block";
+    }
+    function closeModal() {
+      modal.style.display = "none";
+      modalImg.classList.remove("zoomed");
+    }
+    function showImage(index) {
+      const img = galleryImages[index];
+      modalImg.src = img.src;
+      modalTitle.textContent = img.alt;
+      modalDesc.textContent = descriptions[img.alt] || "";
+    }
+    function navigateModal(step) {
+      currentIndex += step;
+      if (currentIndex < 0) currentIndex = galleryImages.length - 1;
+      if (currentIndex >= galleryImages.length) currentIndex = 0;
+      showImage(currentIndex);
+    }
+    function zoomImage() {
+      modalImg.classList.toggle("zoomed");
+    }
+  </script>
+</body>
+</html>
